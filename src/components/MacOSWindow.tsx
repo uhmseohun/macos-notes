@@ -32,7 +32,7 @@ const WindowBlock = styled.div<WindowBlockProps>`
   background: #fff;
 
   width: 840px;
-  height: 560px;
+  height: 620px;
   padding: 20px;
 
   ${(props) =>

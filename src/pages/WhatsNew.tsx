@@ -44,20 +44,22 @@ const WhatsNewPage: React.FC = () => {
   return (
     <PageBlock>
       <Title>메모의 새로운 기능</Title>
-      {features.map((feature) => (
-        <FeatureBlock key={feature.id}>
-          <div>
-            <Icon
-              src={require(`../assets/icon/${feature.iconName}.png`).default}
-            />
-          </div>
-          <FeatureIntroduction>
-            <FeatureName>{feature.name}</FeatureName>
-            <FeatureDescription>{feature.description}</FeatureDescription>
-          </FeatureIntroduction>
-        </FeatureBlock>
-      ))}
-      <PositionedButton secondary>계속하기</PositionedButton>
+      <FeatureList>
+        {features.map((feature) => (
+          <FeatureBlock key={feature.id}>
+            <div>
+              <Icon
+                src={require(`../assets/icon/${feature.iconName}.png`).default}
+              />
+            </div>
+            <FeatureIntroduction>
+              <FeatureName>{feature.name}</FeatureName>
+              <FeatureDescription>{feature.description}</FeatureDescription>
+            </FeatureIntroduction>
+          </FeatureBlock>
+        ))}
+      </FeatureList>
+      <StyledButton secondary>계속</StyledButton>
     </PageBlock>
   );
 };
@@ -78,11 +80,20 @@ const Title = styled.h1`
   margin: 0;
 `;
 
+const FeatureList = styled.div`
+  margin: auto 0;
+  display: flex;
+  flex-direction: column;
+`;
+
 const FeatureBlock = styled.div`
   display: flex;
-  width: 580px;
-  margin-top: 30px;
+  width: 450px;
   align-items: center;
+
+  &:not(:first-of-type) {
+    margin-top: 30px;
+  }
 `;
 
 const FeatureIntroduction = styled.div`
@@ -92,11 +103,11 @@ const FeatureIntroduction = styled.div`
 
 const FeatureName = styled.span`
   font-weight: 600;
-  font-size: 1.2em;
+  font-size: 1.1em;
+  margin-bottom: 5px;
 `;
 
 const FeatureDescription = styled.span`
-  font-size: 1.1em;
   color: #929292;
   word-break: keep-all;
 `;
@@ -106,6 +117,8 @@ const Icon = styled.img`
   width: 2.3em;
 `;
 
-const PositionedButton = styled(Button)`
-  margin-top: auto;
+const StyledButton = styled(Button)`
+  padding: 3px 4em;
+  font-size: 1em;
+  box-shadow: none;
 `;
