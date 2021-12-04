@@ -77,6 +77,5 @@ const TopBarButton = styled.div<TopBarButtonProps>`
 `;
 
 const ChildrenBlock = styled.div`
-  padding: 20px;
   flex: 1;
 `;

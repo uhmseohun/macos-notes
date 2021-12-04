@@ -71,6 +71,7 @@ const PageBlock = styled.div`
   flex-direction: column;
   align-items: center;
   height: 100%;
+  padding-top: 15px;
 `;
 
 const Title = styled.h1`
@@ -120,4 +121,5 @@ const StyledButton = styled(Button)`
   padding: 3px 4em;
   font-size: 1em;
   box-shadow: none;
+  margin-bottom: auto;
 `;
