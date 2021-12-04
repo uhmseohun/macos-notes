@@ -71,7 +71,6 @@ const PageBlock = styled.div`
   flex-direction: column;
   align-items: center;
   height: 100%;
-  padding: 30px 0;
 `;
 
 const Title = styled.h1`
