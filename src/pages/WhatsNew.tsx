@@ -69,11 +69,13 @@ const PageBlock = styled.div`
   flex-direction: column;
   align-items: center;
   height: 100%;
+  padding: 30px 0;
 `;
 
 const Title = styled.h1`
   font-weight: 400;
   font-size: 2.5em;
+  margin: 0;
 `;
 
 const FeatureBlock = styled.div`
