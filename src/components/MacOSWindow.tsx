@@ -3,10 +3,19 @@ import styled, { css } from "styled-components";
 
 type MacOSWindowProps = {
   active?: boolean;
+  onClick: (event: React.MouseEvent) => void;
 };
 
-const MacOSWindow: React.FC<MacOSWindowProps> = ({ children, active }) => {
-  return <WindowBlock active={active}>{children}</WindowBlock>;
+const MacOSWindow: React.FC<MacOSWindowProps> = ({
+  children,
+  active,
+  onClick,
+}) => {
+  return (
+    <WindowBlock active={active} onClick={onClick}>
+      {children}
+    </WindowBlock>
+  );
 };
 
 MacOSWindow.defaultProps = {
