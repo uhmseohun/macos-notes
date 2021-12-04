@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Button from "../components/Button";
 
 type Feature = {
   id: number;
@@ -56,6 +57,7 @@ const WhatsNewPage: React.FC = () => {
           </FeatureIntroduction>
         </FeatureBlock>
       ))}
+      <PositionedButton secondary>계속하기</PositionedButton>
     </PageBlock>
   );
 };
@@ -66,6 +68,7 @@ const PageBlock = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100%;
 `;
 
 const Title = styled.h1`
@@ -99,4 +102,8 @@ const FeatureDescription = styled.span`
 const Icon = styled.img`
   margin-right: 30px;
   width: 2.3em;
+`;
+
+const PositionedButton = styled(Button)`
+  margin-top: auto;
 `;
