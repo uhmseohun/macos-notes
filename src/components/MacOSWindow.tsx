@@ -38,9 +38,9 @@ const WindowBlock = styled.div<WindowBlockProps>`
   ${(props) =>
     props.active
       ? css`
-          box-shadow: 10px 10px 30px #bebebe, -10px -10px 30px #ffffff;
+          box-shadow: 10px 10px 30px #bebebe, 0 0 30px #ffffff;
         `
       : css`
-          box-shadow: 5px 5px 15px #bebebe, -5px -5px 15px #ffffff;
+          box-shadow: 5px 5px 15px #bebebe, 0 0 15px #ffffff;
         `}
 `;
