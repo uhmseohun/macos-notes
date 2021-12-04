@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import styled from "styled-components";
 import MacOSWindow from "./components/MacOSWindow";
+
+import WhatsNewPage from "./pages/WhatsNew";
 
 const App = () => {
   const [windowActive, setWindowActive] = useState(true);
@@ -15,7 +18,9 @@ const App = () => {
         onClick={(e) => onClickHandler(e, true)}
         active={windowActive}
       >
-        <h1 style={{ margin: 0 }}>MEMO!</h1>
+        <Routes>
+          <Route path="/whats-new" element={<WhatsNewPage />} />
+        </Routes>
       </MacOSWindow>
     </AppBlock>
   );
