@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import styled from "styled-components";
 import MacOSWindow from "./components/MacOSWindow";
 
+import MainPage from "./pages/Main";
 import WhatsNewPage from "./pages/WhatsNew";
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
         active={windowActive}
       >
         <Routes>
+          <Route path="/" element={<MainPage />} />
           <Route path="/whats-new" element={<WhatsNewPage />} />
         </Routes>
       </MacOSWindow>
