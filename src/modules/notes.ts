@@ -31,7 +31,7 @@ const initialState: State = JSON.parse(
   localStorage.getItem("notes") || "[]"
 ).map((note: Note) => ({ ...note, lastEdited: new Date(note.lastEdited) }));
 
-const reducer = (state: State = initialState, action: Action) => {
+const reducer = (state: State = initialState, action: Action): State => {
   switch (action.type) {
     case REMOVE_NOTE:
       return state.filter((note) => note.id !== action.id);

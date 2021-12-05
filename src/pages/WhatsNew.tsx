@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useCallback } from "react";
 import styled from "styled-components";
 import Button from "../components/Button";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { gotStarted } from "../modules/settings";
 
 type Feature = {
   id: number;
@@ -41,6 +44,14 @@ const features: Feature[] = [
 ];
 
 const WhatsNewPage: React.FC = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const onClickContinue = useCallback(() => {
+    dispatch(gotStarted());
+    navigate("/");
+  }, [dispatch, navigate]);
+
   return (
     <PageBlock>
       <Title>메모의 새로운 기능</Title>
@@ -59,7 +70,9 @@ const WhatsNewPage: React.FC = () => {
           </FeatureBlock>
         ))}
       </FeatureList>
-      <StyledButton secondary>계속</StyledButton>
+      <StyledButton secondary onClick={onClickContinue}>
+        계속
+      </StyledButton>
     </PageBlock>
   );
 };

@@ -6,7 +6,7 @@ import NoteList from "../components/NoteList";
 import { RootState } from "../modules";
 
 const MainPage: React.FC = () => {
-  const notes = useSelector((state: RootState) => state.notes);
+  const { notes } = useSelector((state: RootState) => state);
   const [selectedId, setSelectedId] = useState<number | null>(
     notes.length ? 0 : null
   );
