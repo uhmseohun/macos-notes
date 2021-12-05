@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { convertCompilerOptionsFromJson } from "typescript";
 import { Note } from "../types";
 import NoteItem from "./NoteItem";
 
