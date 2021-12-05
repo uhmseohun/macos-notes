@@ -6,9 +6,13 @@ import { createStore } from "redux";
 import { Provider } from "react-redux";
 import rootReducer from "./modules";
 import { composeWithDevTools } from "redux-devtools-extension";
+import moment from "moment";
+import "moment/locale/ko";
 
 import App from "./App";
 import GlobalStyle from "./components/GlobalStyle";
+
+moment.locale("ko");
 
 const store = createStore(rootReducer, composeWithDevTools());
 
