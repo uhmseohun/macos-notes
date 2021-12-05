@@ -1,4 +1,4 @@
-export type Memo = {
+export type Note = {
   title: string;
   content: string;
   lastEdited: Date;
