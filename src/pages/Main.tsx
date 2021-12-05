@@ -1,22 +1,28 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
+import NoteEditor from "../components/NoteEditor";
 import NoteList from "../components/NoteList";
 import { RootState } from "../modules";
 
 const MainPage: React.FC = () => {
   const notes = useSelector((state: RootState) => state.notes);
-  const [selectedId, setSelectedId] = useState<number | null>(null);
+  const [selectedId, setSelectedId] = useState<number | null>(
+    notes.length ? 0 : null
+  );
 
   return (
     <PageBlock>
-      <NoteListBlock>
+      <NoteListWrapper>
         <NoteList
           notes={notes}
           selectedId={selectedId}
           setSelectedId={setSelectedId}
         />
-      </NoteListBlock>
+      </NoteListWrapper>
+      <NoteEditorWrapper>
+        <NoteEditor id={selectedId} />
+      </NoteEditorWrapper>
     </PageBlock>
   );
 };
@@ -29,6 +35,10 @@ const PageBlock = styled.div`
   display: flex;
 `;
 
-const NoteListBlock = styled.div`
+const NoteListWrapper = styled.div`
   padding: 10px;
+`;
+
+const NoteEditorWrapper = styled.div`
+  flex: 1;
 `;
