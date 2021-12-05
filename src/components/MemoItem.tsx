@@ -32,10 +32,9 @@ type MemoItemBlockProps = {
 };
 
 const MemoItemBlock = styled.div<MemoItemBlockProps>`
-  border: none;
   display: flex;
   flex-direction: column;
-  width: 240px;
+  width: 250px;
   border-radius: 10px;
   padding: 0.7em 1.2em;
 
