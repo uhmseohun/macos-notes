@@ -38,6 +38,8 @@ const MemoItemBlock = styled.div<MemoItemBlockProps>`
   border-radius: 10px;
   padding: 0.7em 1.2em;
 
+  cursor: default;
+
   ${(props) =>
     props.active &&
     css`
