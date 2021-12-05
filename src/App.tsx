@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
+import AfterGetStarted from "./components/AfterGetStarted";
 import styled from "styled-components";
 import MacOSWindow from "./components/MacOSWindow";
 
@@ -20,7 +21,14 @@ const App = () => {
         active={windowActive}
       >
         <Routes>
-          <Route path="/" element={<MainPage />} />
+          <Route
+            path="/"
+            element={
+              <AfterGetStarted>
+                <MainPage />
+              </AfterGetStarted>
+            }
+          />
           <Route path="/whats-new" element={<WhatsNewPage />} />
         </Routes>
       </MacOSWindow>
