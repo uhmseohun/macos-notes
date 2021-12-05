@@ -13,7 +13,7 @@ const NoteItem: React.FC<NoteItemProps> = ({ note, active }) => {
       <NoteTitle>{note.title}</NoteTitle>
       <NoteSecondaryLine>
         <NoteLastEditedAt>
-          {note.lastEdited.toLocaleDateString()}
+          {new Date(note.lastEdited).toLocaleDateString()}
         </NoteLastEditedAt>
         <NotePreviewContent>{note.content}</NotePreviewContent>
       </NoteSecondaryLine>
