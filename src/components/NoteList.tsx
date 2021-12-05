@@ -11,8 +11,8 @@ const NoteList: React.FC<NoteListProps> = ({ notes }) => {
   return (
     <NoteListBlock>
       {notes.map((note, index) => (
-        <NoteItemWrapper>
-          <NoteItem key={index} note={note} active={false} />
+        <NoteItemWrapper key={note.id}>
+          <NoteItem note={note} active={false} />
           {index !== notes.length - 1 && <NoteItemBorder />}
         </NoteItemWrapper>
       ))}
