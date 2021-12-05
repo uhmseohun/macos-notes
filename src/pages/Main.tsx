@@ -10,11 +10,13 @@ const MainPage: React.FC = () => {
 
   return (
     <PageBlock>
-      <NoteList
-        notes={notes}
-        selectedId={selectedId}
-        setSelectedId={setSelectedId}
-      />
+      <NoteListBlock>
+        <NoteList
+          notes={notes}
+          selectedId={selectedId}
+          setSelectedId={setSelectedId}
+        />
+      </NoteListBlock>
     </PageBlock>
   );
 };
@@ -25,4 +27,8 @@ const PageBlock = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
+`;
+
+const NoteListBlock = styled.div`
+  padding: 10px;
 `;

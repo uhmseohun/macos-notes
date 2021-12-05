@@ -37,6 +37,7 @@ const NoteItemBlock = styled.div<NoteItemBlockProps>`
   width: 250px;
   border-radius: 10px;
   padding: 0.7em 1.2em;
+  font-size: 0.85em;
 
   cursor: default;
 
