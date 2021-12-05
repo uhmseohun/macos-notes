@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import styled from "styled-components";
 import NoteEditor from "../components/NoteEditor";
 import NoteList from "../components/NoteList";
-import { RootState } from "../modules";
+import { RootState } from "../reducer";
 
 const MainPage: React.FC = () => {
   const { notes } = useSelector((state: RootState) => state);

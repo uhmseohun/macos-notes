@@ -4,8 +4,10 @@ import { BrowserRouter } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
-import rootReducer from "./modules";
+import rootReducer from "./reducer";
 import { composeWithDevTools } from "redux-devtools-extension";
+import { persistStore } from "redux-persist";
+import { PersistGate } from "redux-persist/integration/react";
 import moment from "moment";
 import "moment/locale/ko";
 
@@ -15,14 +17,17 @@ import GlobalStyle from "./components/GlobalStyle";
 moment.locale("ko");
 
 const store = createStore(rootReducer, composeWithDevTools());
+const persistor = persistStore(store);
 
 ReactDOM.render(
   <React.StrictMode>
     <GlobalStyle />
     <Provider store={store}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <PersistGate persistor={persistor}>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </PersistGate>
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")

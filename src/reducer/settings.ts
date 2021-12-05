@@ -11,7 +11,7 @@ type State = {
 };
 
 const initialState: State = {
-  getStarted: JSON.parse(localStorage.getItem("getStarted") || "false"),
+  getStarted: false,
 };
 
 const reducer = (state: State = initialState, action: Action): State => {

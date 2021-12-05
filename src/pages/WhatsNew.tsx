@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { gotStarted } from "../modules/settings";
+import { gotStarted } from "../reducer/settings";
 
 type Feature = {
   id: number;

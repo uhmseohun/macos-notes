@@ -27,9 +27,7 @@ type Action =
 
 type State = Note[];
 
-const initialState: State = JSON.parse(
-  localStorage.getItem("notes") || "[]"
-).map((note: Note) => ({ ...note, lastEdited: new Date(note.lastEdited) }));
+const initialState: State = [];
 
 const reducer = (state: State = initialState, action: Action): State => {
   switch (action.type) {
