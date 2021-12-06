@@ -10,7 +10,7 @@ type NoteItemProps = {
 const NoteItem: React.FC<NoteItemProps> = ({ note, active }) => {
   return (
     <NoteItemBlock active={active}>
-      <NoteTitle>{note.title}</NoteTitle>
+      <NoteTitle>{note.title === "" ? "새로운 메모" : note.title}</NoteTitle>
       <NoteSecondaryLine>
         <NoteLastEditedAt>
           {new Date(note.lastEdited).toLocaleDateString()}
