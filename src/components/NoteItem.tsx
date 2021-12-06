@@ -15,7 +15,9 @@ const NoteItem: React.FC<NoteItemProps> = ({ note, active }) => {
         <NoteLastEditedAt>
           {new Date(note.lastEdited).toLocaleDateString()}
         </NoteLastEditedAt>
-        <NotePreviewContent>{note.content}</NotePreviewContent>
+        <NotePreviewContent>
+          {note.content === "" ? "추가 텍스트 없음" : note.content}
+        </NotePreviewContent>
       </NoteSecondaryLine>
       <NoteGroup>
         <Icon src={require(`../assets/icon/folder.png`).default} />
