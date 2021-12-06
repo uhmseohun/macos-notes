@@ -4,6 +4,7 @@ import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { gotStarted } from "../reducer/settings";
+import { createNote } from "../reducer/notes";
 
 type Feature = {
   id: number;
@@ -49,6 +50,14 @@ const WhatsNewPage: React.FC = () => {
 
   const onClickContinue = useCallback(() => {
     dispatch(gotStarted());
+    dispatch(
+      createNote({
+        id: 0,
+        title: "",
+        content: "",
+        lastEdited: new Date(),
+      })
+    );
     navigate("/");
   }, [dispatch, navigate]);
 
