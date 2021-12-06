@@ -1,17 +1,48 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../reducer";
 import moment from "moment";
+import { updateNote } from "../reducer/notes";
 
 type NoteEditorProps = {
   id: null | number;
 };
 
+const splitContent = (content: string) => {
+  const splitted = content.split("\n");
+  if (splitted.length === 1) {
+    return {
+      title: content,
+      content: "",
+    };
+  }
+  return {
+    title: splitted[0],
+    content: splitted.slice(1).join("\n"),
+  };
+};
+
 const NoteEditor: React.FC<NoteEditorProps> = ({ id }) => {
+  const dispatch = useDispatch();
   const note = useSelector((state: RootState) =>
     state.notes.find((note) => note.id === id)
   );
+  const [content, setContent] = useState("");
+  useEffect(() => {
+    if (!note) return;
+    setContent(note.title + "\n" + note.content);
+  }, [note]);
+
+  const onChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    dispatch(
+      updateNote(id!, {
+        id: id!,
+        lastEdited: new Date(),
+        ...splitContent(event.target.value),
+      })
+    );
+  };
 
   if (id === null) return null;
 
@@ -20,7 +51,7 @@ const NoteEditor: React.FC<NoteEditorProps> = ({ id }) => {
       <NoteLastEdited>
         {moment(note!.lastEdited).format("LL LT")}
       </NoteLastEdited>
-      <TextArea>{note!.title + "\n" + note!.content}</TextArea>
+      <TextArea defaultValue={content} onChange={onChange} />
     </NoteEditorBlock>
   );
 };
