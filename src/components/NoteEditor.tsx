@@ -31,7 +31,10 @@ const NoteEditor: React.FC<NoteEditorProps> = ({ id }) => {
   const [content, setContent] = useState("");
   useEffect(() => {
     if (!note) return;
-    setContent(note.title + "\n" + note.content);
+    const content = [note.title, note.content]
+      .filter((v) => v !== "")
+      .join("\n");
+    setContent(content);
   }, [note]);
 
   const onChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
